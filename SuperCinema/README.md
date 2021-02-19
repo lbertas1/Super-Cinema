@@ -6,6 +6,21 @@ To start the application, use the following command: sudo docker-compose up -d -
 
 To view logs: sudo docker-compose logs -f
 
+The project contains a configuration in the docker-compose file that will set the mysql database instance to use the application.
+
+At the start, the application always generates a new database schema with sample data. Among them is an exemplary user,
+that allows to use the application without registering.
+
+
+The application sends an email with the ticket in the attachment section. To receive an email, you should register your own account in the application.
+
+The cinema app provides two different ways to control.
+The first is by using console and the instructions displayed by the application.
+The second way is to maintain the application by created endpoints to communicate with the application. You can choose a seance and purchase tickets in several ways, in the steps below:
+
+Before you start using the application, for it to work properly you should put the file: "email.txt" in the project directory with your email address in the first line and 
+your email password in the second. Mail should allow the use of less secure applications. This is needed to send an email with an attachment.
+
 Cinema app, is a simple app designed to support cinema. It provides such functionalities as:
 - ordering tickets
 - registration and logging in, using the as above token.
@@ -33,21 +48,6 @@ Application characteristics:
 - the application model is divided into two sections, the model reflecting the data in the database and 
 data transfer objects used in the application output value.
 - application available on both github and dockerhub:
-
-The project contains a configuration in the docker-compose file that will set the mysql database instance to use the application.
-
-At the start, the application always generates a new database schema with sample data. Among them is an exemplary user,
-that allows to use the application without registering.
-
-
-The application sends an email with the ticket in the attachment section. To receive an email, you should register your own account in the application.
-
-The cinema app provides two different ways to control.
-The first is by using console and the instructions displayed by the application.
-The second way is to maintain the application by created endpoints to communicate with the application. You can choose a seance and purchase tickets in several ways, in the steps below:
-
-Before you start using the application, for it to work properly you should put the file: "email.txt" in the project directory with your email address in the first line and 
-your email password in the second. Mail should allow the use of less secure applications. This is needed to send an email with an attachment.
 
 A) First way, selecting a movie by name:
 1) if you have a user account, you must log in. If not, prior registration is required.
