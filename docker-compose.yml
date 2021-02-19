@@ -1,0 +1,55 @@
+version: '3.3'
+
+services:
+  super-cinema:
+    image: super-cinema
+    build:
+      context: ./SuperCinema
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8090:8090"
+    networks:
+      - super-cinema
+
+  database:
+    image: mysql:latest
+    volumes:
+      - mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: your_new_password
+      MYSQL_DATABASE: super_cinema
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_TCP_PORT: 3307
+    ports:
+      - 3307:3307
+    expose:
+      - 3307
+    networks:
+      - super-cinema
+      
+volumes:
+  mysql:
+      
+networks:
+  super-cinema:
+
+
+
+# zbudowac kazdy projekt
+# >> mvn clean install -DskipTests
+
+# z poziomu docker-compose.yaml wywolaj:
+# >> docker-compose up -d --build
+# mozesz podgladac logs
+# >> docker-compose logs -f
+
+# kiedy chcesz uruchomic pare instancji jednego service naraz to zastosuj --scale
+# >> docker-compose up -d --build --scale grupowe-users-service=4
+
+# zatrzymanie kontenerow
+# >> docker-compose stop
+
+# sprzatanie po kontenerach
+# >> docker system prune
