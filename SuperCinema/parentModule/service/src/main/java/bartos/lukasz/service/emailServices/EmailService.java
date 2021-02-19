@@ -45,11 +45,9 @@ public class EmailService {
 
     public static void readMailPassword() {
         try {
-            //List<String> strings = Files.readAllLines(Path.of("email i password.txt"));
-            //List<String> strings = Files.readAllLines(Path.of("/home/lbertas1/Pulpit/email i password"));
             List<String> strings = Files.readAllLines(Path.of("email"));
-            EMAIL_ADDRESS = strings.get(0);
-            EMAIL_PASSWORD = strings.get(1);
+            EMAIL_ADDRESS = strings.get(0).trim();
+            EMAIL_PASSWORD = strings.get(1).trim();
         } catch (IOException e) {
             e.printStackTrace();
         }
