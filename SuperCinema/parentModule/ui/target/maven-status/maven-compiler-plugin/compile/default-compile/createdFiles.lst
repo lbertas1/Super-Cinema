@@ -1,0 +1,16 @@
+bartos/lukasz/routing/AuthorizationRouting.class
+bartos/lukasz/routing/UserRouting.class
+bartos/lukasz/routing/SeanceRouting.class
+bartos/lukasz/routing/FavoriteMoviesRouting.class
+bartos/lukasz/routing/CinemaRouting.class
+bartos/lukasz/SuperCinemaAppSpringConfig.class
+bartos/lukasz/routing/CinemaRoomRouting.class
+bartos/lukasz/routing/EmailRouting.class
+bartos/lukasz/routing/MovieRouting.class
+bartos/lukasz/routing/ReservationRouting.class
+bartos/lukasz/routing/MovieRatingRouting.class
+bartos/lukasz/routing/CityRouting.class
+bartos/lukasz/routing/TicketRouting.class
+bartos/lukasz/routing/SeatRouting.class
+bartos/lukasz/routing/ToWatchRouting.class
+bartos/lukasz/CinemaApp.class
