@@ -1,0 +1,12 @@
+bartos/lukasz/service/repositoryServices/CinemaRoomServiceTest.class
+bartos/lukasz/service/repositoryServices/UserServiceTest.class
+bartos/lukasz/service/repositoryServices/MovieServiceTest.class
+bartos/lukasz/service/repositoryServices/ReservationServiceTest.class
+bartos/lukasz/service/repositoryServices/FavoriteMoviesServiceTest.class
+bartos/lukasz/service/repositoryServices/CinemaServiceTest.class
+bartos/lukasz/service/repositoryServices/CityServiceTest.class
+bartos/lukasz/service/repositoryServices/SeanceServiceTest.class
+bartos/lukasz/service/repositoryServices/ToWatchServiceTest.class
+bartos/lukasz/service/repositoryServices/SeatServiceTest.class
+bartos/lukasz/service/repositoryServices/TicketServiceTest.class
+bartos/lukasz/service/repositoryServices/MovieRatingServiceTest.class
