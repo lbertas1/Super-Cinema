@@ -1,0 +1,10 @@
+[
+  {
+    "username": "user",
+    "password": "password",
+    "name": "Name",
+    "surname": "Surname",
+    "email": "tmpEmail@wp.pl",
+    "age": 30
+  }
+]

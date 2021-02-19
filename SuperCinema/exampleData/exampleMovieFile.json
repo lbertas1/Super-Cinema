@@ -1,0 +1,34 @@
+[
+  {
+    "title": "Annabelle",
+    "filmGenre": "HORROR"
+  },
+  {
+    "title": "Joker",
+    "filmGenre": "DRAMA"
+  },
+  {
+    "title": "Bad Boys",
+    "filmGenre": "ACTION"
+  },
+  {
+    "title": "Intouchables",
+    "filmGenre": "COMEDY"
+  },
+  {
+    "title": "Star Wars",
+    "filmGenre": "SCI_FI"
+  },
+  {
+    "title": "Forrest Gump",
+    "filmGenre": "COMEDY"
+  },
+  {
+    "title": "Fight Club",
+    "filmGenre": "THRILLER"
+  },
+  {
+    "title": "The Shining",
+    "filmGenre": "HORROR"
+  }
+]

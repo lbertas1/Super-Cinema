@@ -1,0 +1,22 @@
+[
+  {
+    "roomNumber": 1,
+    "quantityOfRows": 4,
+    "placesInRow": 4
+  },
+  {
+    "roomNumber": 2,
+    "quantityOfRows": 5,
+    "placesInRow": 5
+  },
+  {
+    "roomNumber": 3,
+    "quantityOfRows": 5,
+    "placesInRow": 5
+  },
+  {
+    "roomNumber": 4,
+    "quantityOfRows": 5,
+    "placesInRow": 6
+  }
+]
