@@ -1,3 +1,11 @@
+Before you start using the application, for it to work properly you should put the file: "email.txt" in the project directory with your email address in the first line and your email password in the second. Mail should allow the use of less secure applications. This is needed to send an email with an attachment.
+
+Of course, to run the application you need to set the system variable JAVA_HOME to java 15, and also the PATH variable has a bin folder.
+
+To start the application, use the following command: sudo docker-compose up -d --build.
+
+To view logs: sudo docker-compose logs -f
+
 Cinema app, is a simple app designed to support cinema. It provides such functionalities as:
 - ordering tickets
 - registration and logging in, using the as above token.
