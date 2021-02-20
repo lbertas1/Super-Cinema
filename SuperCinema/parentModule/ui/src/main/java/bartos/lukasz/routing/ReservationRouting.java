@@ -45,7 +45,7 @@ public class ReservationRouting {
 
     public void cancelReservation() {
         path("/reservations/remove", () -> {
-            get("/:id", ((request, response) -> {
+            delete("/:id", ((request, response) -> {
                 response.header("Content-Type", "application/json;charset=utf-8");
                 response.status(200);
                 return reservationService.remove(Long.valueOf(request.params("id")));

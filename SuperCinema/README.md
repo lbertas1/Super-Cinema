@@ -115,7 +115,7 @@ http://localhost:8090/cinemas/name/:cinemaName, method GET
 4) another step: http://localhost:8090/cinemas/repertoire/:cinemaName to get repertoire from chosen cinema, "cinemaName"
 is a parameter, where you should insert name of your cinema
 5) select the video you are interested in from the received list, giving its name as the path parameter:
-http://localhost:8090/movies/by-name/:movieName, method POST
+http://localhost:8090/movies/by-name/:movieName, method GET
 6) download the list of screenings for the selected film:
 http://localhost:8090/seances/by/movie, method GET 
 7) choose your preferred show by entering the show id as a path variable under "seanceId":
@@ -145,7 +145,7 @@ Remaining steps are exactly the same like those from the previous method.
 If you decided to cancel your booking, you can download the list of your bookings under the url:
 http://localhost:8090/reservations/:id, method GET
 and delete the selected reservation by entering the reservation id as a parameter at the following address:
-http://localhost:8090/reservations/remove/:id, method GET
+http://localhost:8090/reservations/remove/:id, method DELETE
 
 To log out use:
 http://localhost:8090/users/logout, method GET
@@ -173,6 +173,9 @@ about movie ratings and rate them yourself.
 14) http://localhost:8090/favourite-movies/remove/movieName, method DELETE to remove movie from list, you must provide movie title in path  
 15) http://localhost:8090/favourite-movies/all, method GET to get all user movies on list 
 16) http://localhost:8090/favourite-movies/by-type/type, method GET to get user movies on list by type, you must provide username and type in path
+
+In the section "other", there are another endpoints that allow you to: 
+add a new movie to the database, check the movies already watched by the user and much more.
  
 Of course you need to be logged in app to using above method.
  
