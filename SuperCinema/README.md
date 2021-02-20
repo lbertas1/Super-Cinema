@@ -1,16 +1,3 @@
-Of course, to run the application you need to set the system variable JAVA_HOME to java 15, and also the PATH variable has a bin folder.
-
-To start the application, use the following command: sudo docker-compose up -d --build.
-
-To view logs: sudo docker-compose logs -f
-
-The project contains a configuration in the docker-compose file that will set the mysql database instance to use the application.
-
-At the start, the application always generates a new database schema with sample data. Among them is an exemplary user,
-that allows to use the application without registering.
-
-The application sends an email with the ticket in the attachment section. To receive an email, you should register your own account in the application.
-
 Cinema app, is a simple app designed to support cinema. It provides such functionalities as:
 - ordering tickets
 - registration and logging in, using the as above token.
@@ -22,6 +9,19 @@ Cinema app, is a simple app designed to support cinema. It provides such functio
 - movie selection
 - search for movies from a given city
 - and many others.
+
+Another app documentation is on the: https://documenter.getpostman.com/view/13586042/TWDXnbfi
+
+To start the application, use the following command: sudo docker-compose up -d --build.
+
+To view logs: sudo docker-compose logs -f
+
+The project contains a configuration in the docker-compose file that will set the mysql database instance to use the application.
+
+At the start, the application always generates a new database schema with sample data. Among them is an exemplary user,
+that allows to use the application without registering.
+
+The application sends an email with the ticket in the attachment section. To receive an email, you should register your own account in the application.
 
 Application characteristics:
 - multi-module application, written in Java 15 with Spring and Spring Boot. 
