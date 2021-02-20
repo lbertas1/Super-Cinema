@@ -26,16 +26,12 @@ public class EmailService {
     private static String FILE_NAME = "Ticket.pdf";
     private static String LOGIN_FILE = "Ticket.pdf";
 
-    private static String EMAIL_ADDRESS = "";
-    private static String EMAIL_PASSWORD = "";
-
-    public static void send(String to) {
+    public static void send(String to, String emailAddress, String password) {
         try {
             System.out.println("Sending email ...");
-            readMailPassword();
-            Session session = createSession();
+            Session session = createSession(emailAddress, password);
             MimeMessage mimeMessage = new MimeMessage(session);
-            prepareEmailMessage(mimeMessage, prepareMimeBodyPart(ATTACHMENT_PATH, FILE_NAME, renderHtmlContent()), to);
+            prepareEmailMessage(mimeMessage, prepareMimeBodyPart(ATTACHMENT_PATH, FILE_NAME, renderHtmlContent()), to, emailAddress);
             Transport.send(mimeMessage);
             System.out.println("Email has been sent.");
         } catch (Exception e) {
@@ -43,20 +39,10 @@ public class EmailService {
         }
     }
 
-    public static void readMailPassword() {
-        try {
-            List<String> strings = Files.readAllLines(Path.of("email"));
-            EMAIL_ADDRESS = strings.get(0).trim();
-            EMAIL_PASSWORD = strings.get(1).trim();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private static void prepareEmailMessage(MimeMessage mimeMessage, Multipart multipart, String to) {
+    private static void prepareEmailMessage(MimeMessage mimeMessage, Multipart multipart, String to, String emailAddress) {
         try {
             mimeMessage.setContent(multipart);
-            mimeMessage.setFrom(new InternetAddress(EMAIL_ADDRESS));
+            mimeMessage.setFrom(new InternetAddress(emailAddress));
             mimeMessage.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
             mimeMessage.setSubject("ticket");
         } catch (Exception e) {
@@ -64,7 +50,7 @@ public class EmailService {
         }
     }
 
-    private static Session createSession() {
+    private static Session createSession(String emailAddress, String emailPassword) {
         Properties properties = new Properties();
         properties.put("mail.smtp.starttls.enable", "true");
         properties.put("mail.smtp.host", "smtp.gmail.com");
@@ -74,7 +60,7 @@ public class EmailService {
         return Session.getInstance(properties, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(EMAIL_ADDRESS, EMAIL_PASSWORD);
+                return new PasswordAuthentication(emailAddress, emailPassword);
             }
         });
     }

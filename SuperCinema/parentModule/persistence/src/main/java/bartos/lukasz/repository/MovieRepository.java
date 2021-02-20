@@ -15,6 +15,4 @@ public interface MovieRepository extends CrudRepository<Movie, Long> {
     List<Movie> getAllByIdList(List<Long> ids);
 
     List<Movie> getMoviesByTypeAndMovieId(String type, List<Long> ids);
-
-//    List<Movie> getMoviesFromCity(Long cityId);
 }

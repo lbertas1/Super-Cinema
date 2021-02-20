@@ -1,5 +1,3 @@
-Before you start using the application, for it to work properly you should put the file: "email.txt" in the project directory with your email address in the first line and your email password in the second. Mail should allow the use of less secure applications. This is needed to send an email with an attachment.
-
 Of course, to run the application you need to set the system variable JAVA_HOME to java 15, and also the PATH variable has a bin folder.
 
 To start the application, use the following command: sudo docker-compose up -d --build.
@@ -11,15 +9,7 @@ The project contains a configuration in the docker-compose file that will set th
 At the start, the application always generates a new database schema with sample data. Among them is an exemplary user,
 that allows to use the application without registering.
 
-
 The application sends an email with the ticket in the attachment section. To receive an email, you should register your own account in the application.
-
-The cinema app provides two different ways to control.
-The first is by using console and the instructions displayed by the application.
-The second way is to maintain the application by created endpoints to communicate with the application. You can choose a seance and purchase tickets in several ways, in the steps below:
-
-Before you start using the application, for it to work properly you should put the file: "email.txt" in the project directory with your email address in the first line and 
-your email password in the second. Mail should allow the use of less secure applications. This is needed to send an email with an attachment.
 
 Cinema app, is a simple app designed to support cinema. It provides such functionalities as:
 - ordering tickets
@@ -49,6 +39,10 @@ Application characteristics:
 data transfer objects used in the application output value.
 - application available on both github and dockerhub:
 
+The cinema app provides two different ways to control.
+The first is by using console and the instructions displayed by the application.
+The second way is to maintain the application by created endpoints to communicate with the application. You can choose a seance and purchase tickets in several ways, in the steps below:
+
 A) First way, selecting a movie by name:
 1) if you have a user account, you must log in. If not, prior registration is required.
 login, method POST:
@@ -58,7 +52,7 @@ http://localhost:8090/users/register
 2) Download the list of available movies below 
 http://localhost:8090/movies/all, method GET
 3) select a movie by entering name as the path parameter in the "movieName" place:
-http://localhost:8090/movies/by/name/:movieName, method GET
+http://localhost:8090/movies/by-name/:movieName, method GET
 4) download the list of screenings for the selected film:
 http://localhost:8090/seances/by/movie, method GET 
 5) choose your preferred show by entering the show id as a path variable under "seanceId":
@@ -74,7 +68,9 @@ http://localhost:8090/tickets/payment/get, method GET
 http://localhost:8090/tickets/payment/pay/:payment, method POST
 If you enter the wrong amount, the ticket will be reserved but not purchased.
 10) you will receive the purchased ticket in the form of a pdf document to the e-mail address provided by you during registration using the url address:
-http://localhost:8090/email/send, method GET
+http://localhost:8090/email/send/:yourEmailAddress/:yourPassword, method GET
+Remember to indicate the address and password of the e-mail from which the e-mail should be sent in the request parameters
+11) http://localhost:8090/users/logout to logout
 
 B) The application also provides selection of the movie by genre.
 1) First of all you should login under url:
@@ -103,7 +99,9 @@ http://localhost:8090/tickets/payment/get, method GET
 http://localhost:8090/tickets/payment/pay/:payment, method POST
 If you enter the wrong amount, the ticket will be reserved but not purchased.
 8) you will receive the purchased ticket in the form of a pdf document to the e-mail address provided by you during registration using the url address:
-http://localhost:8090/email/send, method GET
+http://localhost:8090/email/send/:yourEmailAddress/:yourPassword, method GET
+Remember to indicate the address and password of the e-mail from which the e-mail should be sent in the request parameters
+11) http://localhost:8090/users/logout to logout
 
 D) Another way is to download the repertoire from the cinema you are interested in
 1) Log in to the app first
@@ -131,7 +129,9 @@ http://localhost:8090/tickets/payment/get, method GET
 http://localhost:8090/tickets/payment/pay/:payment, method POST
 If you enter the wrong amount, the ticket will be reserved but not purchased.
 12) you will receive the purchased ticket in the form of a pdf document to the e-mail address provided by you during registration using the url address:
-http://localhost:8090/email/send, method GET
+http://localhost:8090/email/send/:yourEmailAddress/:yourPassword, method GET
+Remember to indicate the address and password of the e-mail from which the e-mail should be sent in the request parameters
+11) http://localhost:8090/users/logout to logout
 
 E) You can also download a list of available screenings from selected city.
 1) First of all, log in

@@ -237,7 +237,7 @@ public class ReservationServiceTest {
                 .collect(Collectors.toList());
 
         when(reservationRepository.findByUserId(userId)).thenReturn(userReservations);
-        assertEquals(expected, reservationService.getAllUserReservation(userId));
+        assertEquals(expected, reservationService.getAllUserReservationById(userId));
     }
 
     @ParameterizedTest
@@ -279,6 +279,4 @@ public class ReservationServiceTest {
 
         assertEquals(result, reservationService.remove(id));
     }
-
-
 }

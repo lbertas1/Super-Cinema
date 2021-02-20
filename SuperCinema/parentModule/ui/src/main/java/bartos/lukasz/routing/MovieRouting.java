@@ -55,6 +55,7 @@ public class MovieRouting {
                 String username = request.params("username");
                 response.header("Content-Type", "application/json;charset=utf-8");
                 response.status(200);
+
                 return ticketService.getMoviesWatchedByUser(username);
             }), new JsonTransformer());
         });

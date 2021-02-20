@@ -17,6 +17,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -64,6 +65,8 @@ public class TicketService {
                 .stream()
                 .map(Reservation::getMovieId)
                 .collect(Collectors.toList());
+
+        if (moviesId.isEmpty()) return new ArrayList<>();
 
         return movieRepository
                 .findAllById(moviesId)

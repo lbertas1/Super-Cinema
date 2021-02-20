@@ -13,9 +13,6 @@ import java.math.BigDecimal;
 @Builder
 public class Ticket {
     private Long id;
-//    private Long seanceId;
-//    private Long seatId;
     private BigDecimal price;
-//    private Long userId;
     private String ticketType;
 }

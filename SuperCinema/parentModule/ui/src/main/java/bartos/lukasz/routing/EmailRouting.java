@@ -32,8 +32,8 @@ public class EmailRouting {
     }
 
     public void sendEmail() {
-        path("/email", () -> {
-            get("/send", ((request, response) -> {
+        path("/email/send", () -> {
+            get("/:email/:password", ((request, response) -> {
                 response.header("Content-Type", "application/json;charset=utf-8");
                 response.status(200);
 
@@ -48,7 +48,7 @@ public class EmailRouting {
                 GetTicket getTicket = ticketService.getTicket(appCache.getProperty("ticketId"));
 
                 PdfFileService.createTicket(getTicket, getUser, getSeats, getMovie, getSeance, getCity, getCinema, getCinemaRoom);
-                EmailService.send(getUser.getEmail());
+                EmailService.send(getUser.getEmail(), request.params("email"), request.params("password"));
 
                 return "Email has been send";
             }));

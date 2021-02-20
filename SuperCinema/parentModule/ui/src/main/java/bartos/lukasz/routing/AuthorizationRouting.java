@@ -44,10 +44,11 @@ public class AuthorizationRouting {
                 if (role.equals(Role.USER)) {
                     List<Pattern> userPatterns = List.of(
                             Pattern.compile("/movies/all"),
+                            Pattern.compile("/movies"),
                             Pattern.compile("/cinemas/all"),
                             Pattern.compile("/cinemas/name/\\w+"),
                             Pattern.compile("/movies/watched/\\w+"),
-                            Pattern.compile("/movies/by/name/\\w+"),
+                            Pattern.compile("/movies/by/name/[a-zA-Z0-9. -_]+"),
                             Pattern.compile("/movies/by-type/[A-Z]+"),
                             Pattern.compile("/ratings"),
                             Pattern.compile("/ratings/all"),
@@ -76,12 +77,12 @@ public class AuthorizationRouting {
                             Pattern.compile("/tickets/\\d+"),
                             Pattern.compile("/tickets/payment/get"),
                             Pattern.compile("/tickets/payment/pay/\\d+"),
-                            Pattern.compile("/email/send"),
+                            Pattern.compile("/email/send/[a-zA-Z0-9._@-]+/[a-zA-Z0-9._@-]+"),
                             Pattern.compile("/cinemas/repertoire/\\w+"),
                             Pattern.compile("/cities/repertoire/\\w+"),
                             Pattern.compile("/cities/all"),
                             Pattern.compile("/users/logout"),
-                            Pattern.compile("/reservations/\\d+"),
+                            Pattern.compile("/reservations/[a-zA-Z0-9_.@]+"),
                             Pattern.compile("/reservations/remove/\\d+")
                     );
 

@@ -8,9 +8,11 @@ import bartos.lukasz.mappers.CreateModelMappers;
 import bartos.lukasz.mappers.GetModelMappers;
 import bartos.lukasz.model.Reservation;
 import bartos.lukasz.model.Seat;
+import bartos.lukasz.model.User;
 import bartos.lukasz.repository.ReservationRepository;
 import bartos.lukasz.repository.SeatRepository;
 import bartos.lukasz.repository.TicketRepository;
+import bartos.lukasz.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +25,7 @@ import java.util.stream.Collectors;
 public class ReservationService {
 
     private final ReservationRepository reservationRepository;
+    private final UserRepository userRepository;
     private final SeatRepository seatRepository;
     private final TicketRepository ticketRepository;
 
@@ -57,9 +60,19 @@ public class ReservationService {
         return GetModelMappers.toGetReservation(reservationRepository.findById(id).orElseThrow(() -> new ServiceException("Reservation doesn't found")));
     }
 
-    public List<GetReservation> getAllUserReservation(Long id) {
+    public List<GetReservation> getAllUserReservationById(Long id) {
         return reservationRepository
                 .findByUserId(id)
+                .stream()
+                .map(GetModelMappers::toGetReservation)
+                .collect(Collectors.toList());
+    }
+
+    public List<GetReservation> getAllUserReservationByUsername(String login) {
+        User user = userRepository.findUserByUsername(login).orElseThrow(() -> new ServiceException("User doesn't found"));
+
+        return reservationRepository
+                .findByUserId(user.getId())
                 .stream()
                 .map(GetModelMappers::toGetReservation)
                 .collect(Collectors.toList());

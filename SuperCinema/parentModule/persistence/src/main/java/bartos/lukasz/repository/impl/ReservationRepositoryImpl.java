@@ -17,14 +17,13 @@ public class ReservationRepositoryImpl extends AbstractCrudRepository<Reservatio
     }
 
     @Override
-    public List<Reservation> findByUserId(Long id) {
-        var sql = "select * from " + tableName + " where user_id = :id;";
-
+    public List<Reservation> findByUserId(Long user_id) {
+        var sql = "select * from " + tableName + " where user_id = :user_id;";
         return this
                 .jdbi
                 .withHandle(handle -> handle
                         .createQuery(sql)
-                        .bind("id", id)
+                        .bind("user_id", user_id)
                         .registerRowMapper(Reservation.class, (rs, ctx) -> Reservation
                                 .builder()
                                 .id(rs.getLong("id"))

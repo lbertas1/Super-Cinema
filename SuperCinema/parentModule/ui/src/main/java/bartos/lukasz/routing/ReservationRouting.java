@@ -1,6 +1,5 @@
 package bartos.lukasz.routing;
 
-import bartos.lukasz.cache.AppCache;
 import bartos.lukasz.dto.createModel.CreateReservation;
 import bartos.lukasz.service.jsonConverters.GsonService;
 import bartos.lukasz.service.jsonConverters.JsonTransformer;
@@ -35,10 +34,10 @@ public class ReservationRouting {
 
     public void getUserReservations() {
         path("/reservations", () -> {
-            get("/:id", ((request, response) -> {
+            get("/:login", ((request, response) -> {
                 response.header("Content-Type", "application/json;charset=utf-8");
                 response.status(200);
-                return reservationService.getAllUserReservation(Long.valueOf(request.params("id")));
+                return reservationService.getAllUserReservationByUsername(request.params("login"));
             }), new JsonTransformer());
         });
     }

@@ -323,8 +323,10 @@ public class App {
 
     private void sendEmailWithTicketPdf(GetTicket ticketDto, GetUser userDto, List<GetSeat> seats, GetMovie movieDto, GetSeance seanceDto,
                                         GetCity cityDto, GetCinema cinemaDto, GetCinemaRoom cinemaRoomDto) {
+        String emailAddress = UserData.getString("Provide your email address to send message");
+        String emailPassword = UserData.getString("Provide your email password to send message");
         PdfFileService.createTicket(ticketDto, userDto, seats, movieDto, seanceDto, cityDto, cinemaDto, cinemaRoomDto);
-        EmailService.send(userDto.getEmail());
+        EmailService.send(userDto.getEmail(), emailAddress, emailPassword);
     }
 
     private void addRateToMovie() {

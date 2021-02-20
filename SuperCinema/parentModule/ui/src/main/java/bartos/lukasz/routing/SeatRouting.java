@@ -32,7 +32,6 @@ public class SeatRouting {
 
     public void initRoutes() {
         save();
-        remove();
         selectSeat();
         getSeatsFromSeance();
         busySeatsFromSeance();
@@ -46,16 +45,6 @@ public class SeatRouting {
                 response.header("Content-Type", "application/json;charset=utf-8");
                 response.status(201);
                 return seatService.save(createSeat);
-            }));
-        });
-    }
-
-    public void remove() {
-        path("/seats", () -> {
-            delete("/:seatId", ((request, response) -> {
-                response.header("Content-Type", "application/json;charset=utf-8");
-                response.status(200);
-                return seatService.removeById(Long.valueOf(request.params("seatId")));
             }));
         });
     }
