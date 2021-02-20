@@ -165,12 +165,12 @@ about movie ratings and rate them yourself.
 8) http://localhost:8090/ratings/most-rating, method GET, to get most often rating movie
 
 9) http://localhost:8090/to-watch, method POST to save movie on "toWatch" list, you must provide CreateToWatch object 
-10) http://localhost:8090/to-watch/remove/movieName, method DELETE to remove movie from list, you must provide movie title in path  
+10) http://localhost:8090/to-watch/remove/movieName, method DELETE to remove movie from list, you must provide movie title in path
 11) http://localhost:8090/to-watch/movies, method GET to get all user movies on list 
 12) http://localhost:8090/to-watch/by-type/type, method GET to get user movies on list by type, you must provide username and type in path
 
 13) http://localhost:8090/favourite-movies, method POST to save movie on "favourite movies" list, you must provide CreateFavoriteMovies object 
-14) http://localhost:8090/favourite-movies/remove/movieName, method DELETE to remove movie from list, you must provide movie title in path  
+14) http://localhost:8090/favourite-movies/remove/movieName, method DELETE to remove movie from list, you must provide movie title in path
 15) http://localhost:8090/favourite-movies/all, method GET to get all user movies on list 
 16) http://localhost:8090/favourite-movies/by-type/type, method GET to get user movies on list by type, you must provide username and type in path
 
@@ -178,6 +178,8 @@ In the section "other", there are another endpoints that allow you to:
 add a new movie to the database, check the movies already watched by the user and much more.
  
 Of course you need to be logged in app to using above method.
+
+Some routes are available only to the user with the admin role.
  
 The application also provides other methods, available only to users with the admin role. From the token transferred to the headers, 
 obtained after logging in, the application checks the user's role and allows or rejects the request. 
