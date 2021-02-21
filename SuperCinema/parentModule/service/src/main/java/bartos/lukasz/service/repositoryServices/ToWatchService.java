@@ -40,8 +40,6 @@ public class ToWatchService {
                 .map(ToWatch::getMovieId)
                 .collect(Collectors.toList());
 
-        System.out.println(ids);
-
         return movieRepository
                 .getAllByIdList(ids)
                 .stream()

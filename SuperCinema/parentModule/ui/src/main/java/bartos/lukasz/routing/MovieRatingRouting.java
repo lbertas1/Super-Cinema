@@ -55,7 +55,7 @@ public class MovieRatingRouting {
     }
 
     public void getAllUserRatings() {
-        path("/ratings/user", () -> {
+        path("/ratings/get/user", () -> {
             get("", ((request, response) -> {
                 response.header("Content-Type", "application/json;charset=utf-8");
                 response.status(200);

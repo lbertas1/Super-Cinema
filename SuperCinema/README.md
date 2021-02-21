@@ -10,7 +10,7 @@ Cinema app, is a simple app designed to support cinema. It provides such functio
 - search for movies from a given city
 - and many others.
 
-Another app documentation is on the: https://documenter.getpostman.com/view/13586042/TWDXnbfi
+Another app documentation is on the: https://documenter.getpostman.com/view/13586042/TWDXnwgc
 
 To start the application, use the following command: sudo docker-compose up -d --build.
 
