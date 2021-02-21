@@ -60,7 +60,7 @@ public class ExampleDataService {
     }
 
     private void cleanDatabase() throws IOException {
-        var SQL = "drop table cities, cinemas, cinema_rooms, movies, seances, seats, tickets, movie_ratings, favorite_movieses, to_watches, users, reservations;";
+        var SQL = "drop table if exists cities, cinemas, cinema_rooms, movies, seances, seats, tickets, movie_ratings, favorite_movieses, to_watches, users, reservations;";
         jdbi.withHandle(handle -> handle.execute(SQL));
     }
 
